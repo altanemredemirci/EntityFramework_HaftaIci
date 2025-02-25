@@ -75,6 +75,61 @@ namespace EF_1_DatabaseFirst.Methods
             
         }
 
+        internal void ProductList()
+        {
+            double productCount = db.Products.Count(); //77
+            int pageSize = 10;
+
+            decimal pageCount = Math.Ceiling(Convert.ToDecimal(productCount / pageSize));
+
+            for (int i = 0; i < pageCount; i++)
+            {
+                var list = db.Products.Skip(i * pageSize).Take(pageSize);
+            }
+
+        }
+
+        internal bool Search(Customer key)
+        {
+            var customers = db.Customers.Contains(key);
+                 
+            return customers;
+        }
+
+        internal Customer FindSearch(string key)
+        {
+            //var customer = db.Customers.Find(key);
+            //var customer = db.Customers.Include(i=> i.Orders).FirstOrDefault(i=> i.CustomerId==key);
+            var orders = db.Customers
+                            .Include(i => i.Orders)
+                            .Where(i => i.CustomerId == key)
+                            //.Select(i => i.Orders)
+                            .ToList();
+
+            //ALFKI 
+            var siparisler = db.Orders.Where(i => i.CustomerId == key).ToList();
+
+            return null;
+        }
+
+        internal IQueryable<Category> CustomerByCategoryId(int catId)
+        {
+
+            //var category = db.Categories
+            //    .Where(c => c.CategoryId == catId)
+            //    .Include(c=> c.Products)
+            //    .ThenInclude(p=> p.OrderDetails)
+            //    .ThenInclude(od=>od.Order)
+            //    .ThenInclude(o=> o.Customer)
+            //    .FirstOrDefault();
+
+            db.Categories.Where(c => c.CategoryId == catId).Select(c => c.CategoryName);
+            var category =  from c in db.Categories where c.CategoryId == catId select c ;
+
+            return category;
+        }
+
+
     }
 
     class ProductSumQuantity
@@ -82,4 +137,17 @@ namespace EF_1_DatabaseFirst.Methods
         public int ProductId { get; set; }
         public int SumQuantity { get; set; }
     }
+
+    /*
+    List - IEnumrable : Kod çalışır Ürünler komple gelir ve ramde tutulur.
+
+    IQueryable : Kod çalışır ama ürünler veritabanında getirilmez de herhangi bir işlem yapılacak ise tekrar veritabanına gidilir.
+     
+     
+     
+     */
+
+
+
+
 }

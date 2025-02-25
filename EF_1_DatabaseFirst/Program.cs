@@ -78,16 +78,47 @@ class Program
 
         #region Kendisine categoryId parametresi gelirse o kategorideki ürünleri, gelmezse bütün ürünleri listeleyen LINQ komutunu yazınız.
 
-        execute.ProductsGetByCategory().ForEach(i => Console.WriteLine(i.ProductId + " " + i.ProductName));
+        //execute.ProductsGetByCategory().ForEach(i => Console.WriteLine(i.ProductId + " " + i.ProductName));
 
-        Console.WriteLine("------------------------");
+        //Console.WriteLine("------------------------");
 
-        execute.ProductsGetByCategory(1).ForEach(i => Console.WriteLine(i.ProductId + " " + i.ProductName));
+        //execute.ProductsGetByCategory(1).ForEach(i => Console.WriteLine(i.ProductId + " " + i.ProductName));
 
 
         #endregion
 
+        #region Pagination
 
+        //execute.ProductList();
+
+        #endregion
+
+        #region Search
+
+        //execute.Search(new Customer() { CustomerId="ALFKI"});
+
+
+        #endregion
+
+        #region Find()
+
+        //execute.FindSearch("ALFKI");
+
+        #endregion
+
+        #region CustomersByCategoryId
+
+        var category = execute.CustomerByCategoryId(1);
+
+        foreach (var item in category.Products)
+        {
+            foreach (var od in item.OrderDetails)
+            {
+                Console.WriteLine(od.Order.CustomerId);
+            }
+        }
+
+        #endregion
         /*
             db.Products.Any();
             db.Products.Take();
