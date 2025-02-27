@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF_1_DatabaseFirst", "EF_1_DatabaseFirst\EF_1_DatabaseFirst.csproj", "{AAA5976C-269C-4A04-B9CE-2E8B0E05D736}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EF_1_DatabaseFirst", "EF_1_DatabaseFirst\EF_1_DatabaseFirst.csproj", "{AAA5976C-269C-4A04-B9CE-2E8B0E05D736}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ado.Net_ExecuteNonQuery", "Ado.Net_ExecuteNonQuery\Ado.Net_ExecuteNonQuery.csproj", "{40B149D8-0C38-4510-B4CD-BB22709008A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ado.Net_ExecuteNonQuery", "Ado.Net_ExecuteNonQuery\Ado.Net_ExecuteNonQuery.csproj", "{40B149D8-0C38-4510-B4CD-BB22709008A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ado.Net_ExecuteReader", "Ado.Net_ExecuteReader\Ado.Net_ExecuteReader.csproj", "{B2C6ACFF-FC3F-4B6B-9E15-79014FB29734}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ado.Net_ExecuteReader", "Ado.Net_ExecuteReader\Ado.Net_ExecuteReader.csproj", "{B2C6ACFF-FC3F-4B6B-9E15-79014FB29734}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF_2_CodeFirst", "EF_2_CodeFirst\EF_2_CodeFirst.csproj", "{BCFD877E-FEF2-4044-9C1C-4739EB2B000A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF_2_CodeFirst_2", "EF_2_CodeFirst_2\EF_2_CodeFirst_2.csproj", "{ABB4102F-A9B0-4390-97E4-862D9A4BDAA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{B2C6ACFF-FC3F-4B6B-9E15-79014FB29734}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2C6ACFF-FC3F-4B6B-9E15-79014FB29734}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2C6ACFF-FC3F-4B6B-9E15-79014FB29734}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCFD877E-FEF2-4044-9C1C-4739EB2B000A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCFD877E-FEF2-4044-9C1C-4739EB2B000A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCFD877E-FEF2-4044-9C1C-4739EB2B000A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCFD877E-FEF2-4044-9C1C-4739EB2B000A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABB4102F-A9B0-4390-97E4-862D9A4BDAA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABB4102F-A9B0-4390-97E4-862D9A4BDAA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABB4102F-A9B0-4390-97E4-862D9A4BDAA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABB4102F-A9B0-4390-97E4-862D9A4BDAA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -110,13 +110,13 @@ class Program
 
         var category = execute.CustomerByCategoryId(1);
 
-        foreach (var item in category.Products)
-        {
-            foreach (var od in item.OrderDetails)
-            {
-                Console.WriteLine(od.Order.CustomerId);
-            }
-        }
+        //foreach (var item in category.Products)
+        //{
+        //    foreach (var od in item.OrderDetails)
+        //    {
+        //        Console.WriteLine(od.Order.CustomerId);
+        //    }
+        //}
 
         #endregion
         /*
