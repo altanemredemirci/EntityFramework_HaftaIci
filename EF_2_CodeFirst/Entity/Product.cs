@@ -18,6 +18,11 @@ namespace EF_2_CodeFirst.Entity
 
         public int Stock { get; set; }
 
+        //OneToOne
+        public int BarcodeId { get; set; }
+        public Barcode Barcode { get; set; }
+
+        //OneToMany
         public int CategoryId { get; set; }
         public Category Category { get; set; }
     }

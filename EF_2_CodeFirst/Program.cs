@@ -1,4 +1,5 @@
 ﻿using EF_2_CodeFirst.Context;
+using EF_2_CodeFirst.Entity;
 
 namespace EF_2_CodeFirst
 {
@@ -9,6 +10,7 @@ namespace EF_2_CodeFirst
             DataContext db = new DataContext();
 
             var products = db.Products.Where(i => i.CategoryId == 1).ToList();
+
         }
     }
 }

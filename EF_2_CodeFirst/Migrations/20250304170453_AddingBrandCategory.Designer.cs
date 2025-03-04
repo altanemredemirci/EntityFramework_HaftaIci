@@ -3,6 +3,7 @@ using EF_2_CodeFirst.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EF_2_CodeFirst.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20250304170453_AddingBrandCategory")]
+    partial class AddingBrandCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -20,29 +23,6 @@ namespace EF_2_CodeFirst.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("EF_2_CodeFirst.Entity.Barcode", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId")
-                        .IsUnique();
-
-                    b.ToTable("Barcodes");
-                });
 
             modelBuilder.Entity("EF_2_CodeFirst.Entity.Brand", b =>
                 {
@@ -105,9 +85,6 @@ namespace EF_2_CodeFirst.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("BarcodeId")
-                        .HasColumnType("int");
-
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -127,17 +104,6 @@ namespace EF_2_CodeFirst.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("EF_2_CodeFirst.Entity.Barcode", b =>
-                {
-                    b.HasOne("EF_2_CodeFirst.Entity.Product", "Product")
-                        .WithOne("Barcode")
-                        .HasForeignKey("EF_2_CodeFirst.Entity.Barcode", "ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("EF_2_CodeFirst.Entity.BrandCategory", b =>
@@ -180,12 +146,6 @@ namespace EF_2_CodeFirst.Migrations
                     b.Navigation("BrandCategories");
 
                     b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("EF_2_CodeFirst.Entity.Product", b =>
-                {
-                    b.Navigation("Barcode")
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
